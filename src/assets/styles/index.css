@@ -3,3 +3,12 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+.toast-message {
+  background: darkblue;
+  color: #fff;
+  font-size: 20px;
+  width: 34vw;
+  padding: 30px 20px;
+}
