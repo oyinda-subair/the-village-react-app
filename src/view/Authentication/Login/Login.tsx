@@ -7,10 +7,9 @@ import { isEmpty } from '../../../utils';
 import { history } from '../../../utils/history';
 import TextBox from '../../../components/Inputs/TextBox';
 import Button from '../../../components/Buttons/Button';
-import { Sign } from 'crypto';
+import { toast } from 'react-toastify';
 
 interface LoginProps {
-  userInfo: Record<string, unknown>;
   apiError: any;
   loading: boolean;
   isLoggedIn: boolean | undefined;
@@ -18,11 +17,7 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = (props: LoginProps) => {
-  const { userLogin, userInfo, apiError } = props;
-
-  // useEffect(() => {
-  //   if (!isEmpty(userInfo)) history.navigate('/');
-  // }, []);
+  const { userLogin, apiError } = props;
 
   const defaultValues = { username: '', password: '', message: '' };
   const [error, setError] = useState(defaultValues);
@@ -30,6 +25,16 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
   const [rememberMe, setRememberMe] = useState(false);
 
   const [loading, setLoading] = useState(false);
+
+  const toastId = React.useRef(null);
+
+  // useEffect(() => {
+  //   toast.promise(userLogin, {
+  //     pending: 'Promise is pending',
+  //     success: 'Promise  Loaded',
+  //     error: 'error',
+  //   });
+  // }, []);
 
   const handleRememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
@@ -57,8 +62,14 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
         if (response.type === 'auth/login/rejected') {
           setLoading(false);
           const msg: any = { message: response.payload };
+          toast.error('Incorrect username or password', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
           return setError({ ...msg });
         } else {
+          toast.success('Successfully logged in!', {
+            position: toast.POSITION.TOP_RIGHT,
+          });
           localStorage.setItem('rememberMe', String(rememberMe));
           history.navigate('/');
         }

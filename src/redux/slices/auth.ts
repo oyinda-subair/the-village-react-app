@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import AuthService from '../../services/auth.service';
-import { AuthData } from '../../interfaces/auth.type';
-import { CommonResponse } from '../../interfaces/common.type';
-import { persistor, RootState } from '../store';
-import { UserInfoData } from '../../interfaces/user.type';
 import Cookies from 'js-cookie';
+
+import { AuthData } from '../../interfaces/auth.type';
+import AuthService from '../../services/auth.service';
+import { RootState } from '../store';
 
 const initialState: AuthData = {
   loading: false,
@@ -42,6 +41,7 @@ const createExtraReducers = () => {
         state.loading = false;
         state.success = true; // registration successful
         state.userToken = action.payload;
+        state.isLoggedIn = true;
       })
       .addCase(registerUser.rejected, (state: AuthData, action: any) => {
         state.loading = false;
