@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { authActions, getAuthData } from '../../redux/slices/auth';
-import { history } from '../../utils/history';
-import { useAppDispatch, useAppSelector } from '../../redux/store/hook';
+
 import { AuthData } from '../../interfaces/auth.type';
+import { authActions, getAuthData } from '../../redux/slices/auth';
 import { persistor } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/store/hook';
+import { history } from '../../utils/history';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const dispatch = useAppDispatch();
   const auth: AuthData = useAppSelector(getAuthData);
-  let displayAuthLink;
+
   useEffect(() => {
     console.log('islogged in', auth.isLoggedIn);
-    // if (auth.isLoggedIn) displayAuthLink = renderSignInCTA;
-    // else displayAuthLink = renderSignOutCTA;
   }, []);
 
   const handleLogout = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
@@ -24,18 +23,28 @@ export default function Navbar() {
     persistor.flush().then(() => {
       return persistor.purge();
     });
-    history.navigate('/login');
+    history.navigate('/');
   };
 
-  const renderSignInCTA = () => {
+  const renderRegisterAndSignInCTA = () => {
     return (
       <>
-        <Link
-          className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
-          to={'/auth/login'}
-        >
-          Sign In
-        </Link>
+        <li className='nav-item'>
+          <Link
+            className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+            to={'/auth/register'}
+          >
+            Register
+          </Link>
+        </li>
+        <li className='nav-item'>
+          <Link
+            className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+            to={'/auth/login'}
+          >
+            Sign In
+          </Link>
+        </li>
       </>
     );
   };
@@ -43,34 +52,38 @@ export default function Navbar() {
   const renderSignOutCTA = () => {
     return (
       <>
-        <Link
-          className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
-          to={'/'}
-          onClick={(e) => handleLogout(e)}
-        >
-          Sign Out
-        </Link>
+        <li className='nav-item'>
+          <Link
+            className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
+            to={'/'}
+            onClick={(e) => handleLogout(e)}
+          >
+            Sign Out
+          </Link>
+        </li>
       </>
     );
   };
 
-  if (auth.isLoggedIn) {
-    displayAuthLink = renderSignOutCTA();
-  } else {
-    displayAuthLink = renderSignInCTA();
-  }
+  const renderAuthLinks = () => {
+    if (auth.isLoggedIn) {
+      return renderSignOutCTA();
+    } else {
+      return renderRegisterAndSignInCTA();
+    }
+  };
 
   return (
     <>
       <nav className='top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-indigo-500 mb-3'>
         <div className='container px-4 mx-auto flex flex-wrap items-center justify-between'>
           <div className='w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start'>
-            <a
+            <Link
               className='text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase text-white'
-              href='#pablo'
+              to={'/'}
             >
               indigo Notus
-            </a>
+            </Link>
             <button
               className='text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none'
               type='button'
@@ -111,23 +124,7 @@ export default function Navbar() {
                   <span className='ml-2'>Pin</span>
                 </a>
               </li>
-              <li className='nav-item'>
-                <Link
-                  className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
-                  to={'/auth/register'}
-                >
-                  Register
-                </Link>
-              </li>
-              <li className='nav-item'>
-                {/* <Link
-                  className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
-                  to={'/auth/login'}
-                >
-                  Sign In
-                </Link> */}
-                {displayAuthLink}
-              </li>
+              {renderAuthLinks()}
             </ul>
           </div>
         </div>

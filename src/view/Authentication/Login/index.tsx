@@ -8,7 +8,6 @@ import Login from './Login';
 const mapState = (state: RootState, _ownProps: any = {}) => {
   const auth: AuthData = state.auth;
   return {
-    userInfo: auth.userInfo,
     apiError: auth.error,
     loading: auth.loading,
     isLoggedIn: auth.success,
@@ -18,7 +17,6 @@ const mapState = (state: RootState, _ownProps: any = {}) => {
 const mapDispatch = (dispatch: AppDispatch) => {
   return {
     userLogin: (data: LoginData) => dispatch(authActions.loginUser(data)),
-    // getUserData: () => dispatch(authActions.fetchUserData()),
   };
 };
 

@@ -1,22 +1,34 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
-import { LoggedInData, LoginData } from '../interfaces/auth.type';
-import { UserRegistration } from '../interfaces/user.type';
+
+import { LoggedInData, LoginData, RegisteredData, UserCreationData } from '../interfaces/auth.type';
+import { UserRegistration } from '../interfaces/payload.type';
 import http from './helper/axiosClient';
 import PropertyNormalizer from './helper/propertyNormalizer';
 
 /* eslint-disable  camelcase */
 const registerUser = createAsyncThunk(
   'auth/register',
-  async (data: UserRegistration, { rejectWithValue }) => {
+  async (data: UserCreationData, { rejectWithValue }) => {
     try {
       const config = {
         headers: {
           'Content-Type': 'application/json',
         },
       };
-      const response = await http.post('/auth/register', data, config);
-      return response;
+      delete data['confirmPassword'];
+      const payload = data;
+
+      const normalizedPayload: UserRegistration = PropertyNormalizer.reverseNormalize(payload);
+      console.log('user creation payload', normalizedPayload);
+
+      const response = await http.post('/auth/register', normalizedPayload, config);
+      const result: RegisteredData = PropertyNormalizer.normalize(response.data);
+      Cookies.set(
+        'token',
+        JSON.stringify({ accessToken: result.accessToken, tokenType: result.tokenType }),
+      );
+      return result;
     } catch (error: any) {
       // return custom error message from backend if present
       if (error.response && error.response.data.message) {

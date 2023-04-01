@@ -3,7 +3,7 @@ import React from 'react';
 interface TextboxProps {
   label: string;
   name: string;
-  error: string;
+  error?: string;
   value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type: string;

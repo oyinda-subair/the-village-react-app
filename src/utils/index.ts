@@ -1,6 +1,6 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 export const isEmpty = (obj: Record<string, any>): boolean => {
-  for (let i in obj) return false;
+  for (const i in obj) return false;
   return true;
 };
 

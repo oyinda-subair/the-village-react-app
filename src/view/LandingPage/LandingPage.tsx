@@ -14,7 +14,7 @@ const LandingPage: React.FC<LandingPageProps> = (props: LandingPageProps) => {
   const { userDetails, apiError, loading, isLoggedIn, getUserData } = props;
 
   useEffect(() => {
-    if (isEmpty(userDetails)) handleUserData();
+    if (isLoggedIn && isEmpty(userDetails)) handleUserData();
   }, []);
 
   const handleUserData = () => {

@@ -1,7 +1,8 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import moment from 'moment';
 import jwtDecode from 'jwt-decode';
+import moment from 'moment';
+
 import { TokenData } from '../../interfaces/auth.type';
 
 const config = {
