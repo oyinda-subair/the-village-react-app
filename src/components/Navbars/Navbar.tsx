@@ -12,10 +12,6 @@ export default function Navbar() {
   const dispatch = useAppDispatch();
   const auth: AuthData = useAppSelector(getAuthData);
 
-  useEffect(() => {
-    console.log('islogged in', auth.isLoggedIn);
-  }, []);
-
   const handleLogout = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     e.preventDefault();
     dispatch(authActions.logout());

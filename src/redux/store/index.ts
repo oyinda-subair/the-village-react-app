@@ -1,14 +1,14 @@
-import { Action, ThunkAction, configureStore } from '@reduxjs/toolkit';
+import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { createLogger } from 'redux-logger';
 import {
   FLUSH,
   PAUSE,
   PERSIST,
+  persistReducer,
+  persistStore,
   PURGE,
   REGISTER,
   REHYDRATE,
-  persistReducer,
-  persistStore,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -54,7 +54,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const middlewares: any = [];
 
 if (import.meta.env.NODE_ENV !== 'prodution') {
-  console.log('in development mode');
+  console.log(`in ${import.meta.env.NODE_ENV} mode`);
   middlewares.push(logger);
 }
 

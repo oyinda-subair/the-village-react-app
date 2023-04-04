@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+
 import { AuthData } from '../../interfaces/auth.type';
 import { FetchUserData } from '../../interfaces/user.type';
 import { selectUserData, userActions } from '../../redux/slices/user';
@@ -10,7 +11,7 @@ const mapState = (state: RootState, _ownProps: any = {}) => {
   const user: FetchUserData = state.user;
   const isLoggedIn = state.auth.isLoggedIn;
   return {
-    userDetails: user.userDetails,
+    userDetails: user?.userDetails || {},
     apiError: user.error,
     loading: user.loading,
     isLoggedIn,

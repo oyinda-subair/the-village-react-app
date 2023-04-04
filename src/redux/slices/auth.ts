@@ -52,7 +52,6 @@ const createExtraReducers = () => {
         state.error = null;
       })
       .addCase(loginUser.fulfilled, (state: AuthData, action: { payload: any }) => {
-        console.log('payload', action.payload);
         state.loading = false;
         state.success = true; // login successful
         state.isLoggedIn = true; // login successful
