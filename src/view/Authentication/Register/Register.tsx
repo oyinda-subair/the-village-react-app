@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import github from '../../../assets/img/github.svg';
-import google from '../../../assets/img/google.svg';
+// import github from '../../../assets/img/github.svg';
+// import google from '../../../assets/img/google.svg';
 import Button from '../../../components/Buttons/Button';
 import TextBox from '../../../components/Inputs/TextBox';
 import { UserCreationData } from '../../../interfaces/auth.type';
@@ -138,14 +138,14 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src={github} />
+                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/github.svg' />
                       Github
                     </button>
                     <button
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src={google} />
+                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/google.svg' />
                       Google
                     </button>
                   </div>
@@ -221,7 +221,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
                     </div>
 
                     <div className='text-center mt-6'>
-                      <Button loading={loading} title='Register' />
+                      <Button loading={loading} title='Register' id='register' />
                     </div>
                   </form>
                 </div>

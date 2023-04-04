@@ -21,7 +21,7 @@ export default function App() {
   history.navigate = useNavigate();
   history.location = useLocation();
 
-  const { notifications, clear, markAllAsRead, markAsRead } = useNotificationCenter();
+  // const { notifications, clear, markAllAsRead, markAsRead } = useNotificationCenter();
 
   useEffect(() => {
     // Update the document title using the browser API

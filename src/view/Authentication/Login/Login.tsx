@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import Button from '../../../components/Buttons/Button';
+import TextBox from '../../../components/Inputs/TextBox';
 import { LoginData } from '../../../interfaces/auth.type';
-import github from '../../../assets/img/github.svg';
-import google from '../../../assets/img/google.svg';
+// import github from '../../../assets/img/github.svg';
+// import google from '../../../assets/img/google.svg';
 import { isEmpty } from '../../../utils';
 import { history } from '../../../utils/history';
-import TextBox from '../../../components/Inputs/TextBox';
-import Button from '../../../components/Buttons/Button';
-import { toast } from 'react-toastify';
 
 interface LoginProps {
   apiError: any;
@@ -88,7 +89,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
     const formError: any = {};
 
     if (!email) {
-      formError.email = 'Please Enter Email Address';
+      formError.username = 'Please Enter Email Address';
     }
     if (!password) {
       formError.password = 'Please Enter Password';
@@ -112,14 +113,14 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src={github} />
+                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/github.svg' />
                       Github
                     </button>
                     <button
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src={google} />
+                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/google.svg' />
                       Google
                     </button>
                   </div>
@@ -166,7 +167,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
                     </div>
 
                     <div className='text-center mt-6'>
-                      <Button loading={loading} title='Sign In' />
+                      <Button loading={loading} title='Sign In' id='login' />
                     </div>
                   </form>
                 </div>
