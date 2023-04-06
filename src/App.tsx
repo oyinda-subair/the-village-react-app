@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { useNotificationCenter } from 'react-toastify/addons/use-notification-center';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Cookies from 'js-cookie';
@@ -12,7 +11,6 @@ import Footer from './components/Footers/Footer';
 import Navbar from './components/Navbars/Navbar';
 import { TokenData } from './interfaces/auth.type';
 import { history } from './utils/history';
-import Home from './view';
 import Login from './view/Authentication/Login';
 import Register from './view/Authentication/Register';
 import LandingPage from './view/LandingPage';

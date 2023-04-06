@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
-
-import { AuthData } from '../../interfaces/auth.type';
 import { FetchUserData } from '../../interfaces/user.type';
-import { selectUserData, userActions } from '../../redux/slices/user';
+import { userActions } from '../../redux/slices/user';
 import { AppDispatch, RootState } from '../../redux/store';
 import withRouter from '../helper/withRouter';
 import LandingPage from './LandingPage';

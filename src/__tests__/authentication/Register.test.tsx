@@ -9,7 +9,7 @@ import Register from '../../view/Authentication/Register';
 
 describe('Register User', () => {
   afterEach(() => {
-    cleanup;
+    cleanup; // eslint-disable-line
     jest.resetAllMocks();
   });
 

@@ -9,7 +9,9 @@
     "react-app",
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/warnings",
     "prettier"
   ],
   "overrides": [],
@@ -39,16 +41,17 @@
     "import/no-unresolved": "error",
     // "import/no-named-as-default-member": "off",
     "import/order": [
-      "error",
+      "off",
       {
-        "groups": [
-          "builtin", // Built-in imports (come from NodeJS native) go first
-          "external", // <- External imports
-          "internal", // <- Absolute imports
-          ["sibling", "parent"], // <- Relative imports, the sibling and parent types they can be mingled together
-          "index", // <- index imports
-          "unknown" // <- unknown
+        "pathGroups": [
+          {
+            "pattern": "^react(.*)",
+            "group": "external",
+            "position": "before"
+          }
         ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "groups": ["builtin", "external", "internal"],
         "newlines-between": "always",
         "alphabetize": {
           /* sort in ascending order. Options: ["ignore", "asc", "desc"] */

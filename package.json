@@ -5,12 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch",
     "build": "tsc -p tsconfig.prod.json && vite build",
     "preview": "vite preview",
     "host": "vite --host",
-    "lint": "eslint --ext .ts ./src",
-    "lint:fix": "npm run lint -- --fix",
-    "test": "NODE_ENV=test jest"
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "lint": "eslint --ext .ts \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",
@@ -48,6 +50,7 @@
     "@types/redux-logger": "^3.0.9",
     "@types/redux-mock-store": "^1.0.3",
     "@types/redux-thunk": "^2.1.0",
+    "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^3.1.0",
     "axios-mock-adapter": "^1.21.3",
     "babel-plugin-transform-import-meta": "^2.2.0",

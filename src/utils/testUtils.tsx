@@ -1,9 +1,10 @@
 import React, { PropsWithChildren } from 'react';
+
+import { configureStore } from '@reduxjs/toolkit';
+import { type RenderOptions, render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import { configureStore } from '@reduxjs/toolkit';
-import { render, type RenderOptions } from '@testing-library/react';
 
 // import { Provider } from 'react-redux';
 // import type { AppStore } from '@redux/store';
