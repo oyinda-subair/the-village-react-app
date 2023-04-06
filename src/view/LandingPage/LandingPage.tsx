@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
+
 import { isEmpty } from '../../utils';
-import { history } from '../../utils/history';
 
 interface LandingPageProps {
   userDetails: Record<string, unknown>;
@@ -11,21 +11,22 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = (props: LandingPageProps) => {
-  const { userDetails, apiError, loading, isLoggedIn, getUserData } = props;
+  const { userDetails, isLoggedIn, getUserData } = props;
 
   useEffect(() => {
-    if (isLoggedIn && isEmpty(userDetails)) handleUserData();
-  }, []);
-
-  const handleUserData = () => {
-    getUserData()
-      .then((response: any) => {
-        console.log('response *****', response);
-      })
-      .catch((error: any) => {
-        console.log('error xxxxxxx', error);
-      });
-  };
+    const handleUserData = () => {
+      getUserData()
+        .then((response: any) => {
+          console.log('response *****', response);
+        })
+        .catch((error: any) => {
+          console.log('error xxxxxxx', error);
+        });
+    };
+    if (isLoggedIn && isEmpty(userDetails)) {
+      handleUserData();
+    }
+  }, [userDetails, isLoggedIn, getUserData]);
 
   return (
     <>

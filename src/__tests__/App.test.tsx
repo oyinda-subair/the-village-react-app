@@ -27,7 +27,7 @@ const initialState = {
 // Tests
 describe('Landing Page', () => {
   afterEach(() => {
-    cleanup;
+    cleanup; // eslint-disable-line
     jest.resetAllMocks();
   });
 

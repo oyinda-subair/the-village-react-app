@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-
 import Button from '../../../components/Buttons/Button';
 import TextBox from '../../../components/Inputs/TextBox';
 import { LoginData } from '../../../interfaces/auth.type';
@@ -27,7 +26,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 
   const [loading, setLoading] = useState(false);
 
-  const toastId = React.useRef(null);
+  // const toastId = React.useRef(null);
 
   // useEffect(() => {
   //   toast.promise(userLogin, {

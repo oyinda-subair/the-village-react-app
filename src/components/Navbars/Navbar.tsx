@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { AuthData } from '../../interfaces/auth.type';
 import { authActions, getAuthData } from '../../redux/slices/auth';
 import { persistor } from '../../redux/store';

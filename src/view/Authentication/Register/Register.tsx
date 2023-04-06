@@ -7,13 +7,7 @@ import { toast } from 'react-toastify';
 import Button from '../../../components/Buttons/Button';
 import TextBox from '../../../components/Inputs/TextBox';
 import { UserCreationData } from '../../../interfaces/auth.type';
-import {
-  confirmPasswordValidator,
-  emailValidator,
-  inputValidator,
-  isEmpty,
-  passwordValidator,
-} from '../../../utils';
+import { isEmpty } from '../../../utils';
 import { history } from '../../../utils/history';
 
 interface RegisterProps {
@@ -42,7 +36,7 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
     setLoading(true);
     setError(defaultValues);
 
-    const { firstName, surname, email, password, confirmPassword } = registerForm;
+    const { firstName, email, password, confirmPassword } = registerForm;
 
     const formError: any = validateField({ firstName, email, password, confirmPassword });
 
@@ -79,17 +73,6 @@ const Register: React.FC<RegisterProps> = (props: RegisterProps) => {
   };
 
   /** helper */
-  const validatorChecker = (values: any) => {
-    const { firstName, email, password, confirmPassword } = values;
-    const formError: any = {};
-
-    formError.firstName = inputValidator(firstName, 'First Name');
-    formError.email = emailValidator(email);
-    formError.password = passwordValidator(password);
-    formError.confirmPassword = confirmPasswordValidator(confirmPassword, password);
-
-    return formError;
-  };
 
   const validateField = (values: any) => {
     const { firstName, email, password, confirmPassword } = values;

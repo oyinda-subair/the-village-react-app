@@ -9,7 +9,7 @@ import Login from '../../view/Authentication/Login';
 
 describe('Login User', () => {
   afterEach(() => {
-    cleanup;
+    cleanup; // eslint-disable-line
     jest.resetAllMocks();
   });
 

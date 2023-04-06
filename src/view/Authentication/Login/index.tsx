@@ -1,8 +1,10 @@
 import { connect } from 'react-redux';
+
 import { AuthData, LoginData } from '../../../interfaces/auth.type';
 import { authActions } from '../../../redux/slices/auth';
-import { RootState, AppDispatch } from '../../../redux/store';
+import { AppDispatch, RootState } from '../../../redux/store';
 import withRouter from '../../helper/withRouter';
+
 import Login from './Login';
 
 const mapState = (state: RootState, _ownProps: any = {}) => {
