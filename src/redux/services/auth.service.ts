@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-import { LoggedInData, LoginData, RegisteredData, UserCreationData } from '../interfaces/auth.type';
-import { UserRegistration } from '../interfaces/payload.type';
+import { LoggedInData, LoginData, RegisteredData, UserCreationData } from '@interface/auth.type';
+import { UserRegistration } from '@interface/payload.type';
 
 import http from './helper/axiosClient';
 import PropertyNormalizer from './helper/propertyNormalizer';

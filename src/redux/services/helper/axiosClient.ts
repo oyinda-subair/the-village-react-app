@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
 
-import { TokenData } from '../../interfaces/auth.type';
+import { TokenData } from '@interface/auth.type';
 
 const config = {
   apiBasePath: import.meta.env.VITE_REACT_APP_API_BASE_PATH || 'http://localhost:8001',

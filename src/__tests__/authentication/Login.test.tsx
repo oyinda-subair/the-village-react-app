@@ -4,8 +4,9 @@ import '@testing-library/jest-dom/extend-expect';
 import { cleanup, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithProviders } from '../../utils/testUtils';
-import Login from '../../view/Authentication/Login';
+import Login from '@view/Authentication/Login';
+
+import { renderWithProviders } from '@utils/testUtils';
 
 describe('Login User', () => {
   afterEach(() => {

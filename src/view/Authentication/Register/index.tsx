@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 
-import { UserCreationData } from '../../../interfaces/auth.type';
-import { authActions } from '../../../redux/slices/auth';
-import { AppDispatch, RootState } from '../../../redux/store';
-import withRouter from '../../helper/withRouter';
+import withRouter from '@view/helper/withRouter';
+
+import { UserCreationData } from '@interface/auth.type';
+
+import { authActions } from '@redux/slices/auth';
+import { AppDispatch, RootState } from '@redux/store';
 
 import Register from './Register';
 

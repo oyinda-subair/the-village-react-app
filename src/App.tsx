@@ -7,13 +7,16 @@ import Cookies from 'js-cookie';
 import jwtDecode from 'jwt-decode';
 import moment from 'moment';
 
-import Footer from './components/Footers/Footer';
-import Navbar from './components/Navbars/Navbar';
-import { TokenData } from './interfaces/auth.type';
-import { history } from './utils/history';
-import Login from './view/Authentication/Login';
-import Register from './view/Authentication/Register';
-import LandingPage from './view/LandingPage';
+import Footer from '@components/Footers/Footer';
+import Navbar from '@components/Navbars/Navbar';
+
+import Login from '@view/Authentication/Login';
+import Register from '@view/Authentication/Register';
+import LandingPage from '@view/LandingPage';
+
+import { TokenData } from '@interface/auth.type';
+
+import { history } from '@utils/history';
 
 export default function App() {
   history.navigate = useNavigate();

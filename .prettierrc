@@ -7,7 +7,19 @@
   "trailingComma": "all",
   "jsxSingleQuote": true,
   "bracketSpacing": true,
-  "importOrder": ["^react(.*)", "antd/(.*)", "<THIRD_PARTY_MODULES>", "@/(.*)", "^[./]"],
+  "importOrder": [
+    "^react(.*)",
+    "<THIRD_PARTY_MODULES>",
+    "^@components/(.*)$",
+    "^@view/(.*)",
+    "^@interface/(.*)",
+    "^@redux/(.*)",
+    "^@slices/(.*)",
+    "^@services/(.*)",
+    "^@assets/(.*)",
+    "^@utils/(.*)",
+    "^[./]"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderCaseInsensitive": true

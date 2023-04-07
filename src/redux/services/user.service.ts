@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { UserInfoData } from '../interfaces/user.type';
+import { UserInfoData } from '@interface/user.type';
 
 import http from './helper/axiosClient';
 import PropertyNormalizer from './helper/propertyNormalizer';

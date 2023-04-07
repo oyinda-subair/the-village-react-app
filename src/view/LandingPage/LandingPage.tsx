@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { isEmpty } from '../../utils';
+import { isEmpty } from '@utils/validator';
 
 interface LandingPageProps {
   userDetails: Record<string, unknown>;
