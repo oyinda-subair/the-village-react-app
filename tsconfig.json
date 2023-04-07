@@ -15,7 +15,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react",
-    "types": ["vite/client", "node", "jest", "@testing-library/jest-dom"]
+    "types": ["vite/client", "node", "jest", "@testing-library/jest-dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@interface/*": ["src/interface/*"],
+      "@view/*": ["src/view/*"],
+      "@redux/*": ["src/redux/*"],
+      "@slices/*": ["src/redux/slices/*"],
+      "@services/*": ["src/redux/services/*"],
+      "@utils/*": ["src/utils/*"]
+    }
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "tests"],
   "references": [{ "path": "./tsconfig.node.json" }]
