@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AuthData } from '../../interfaces/auth.type';
-import { authActions, getAuthData } from '../../redux/slices/auth';
-import { persistor } from '../../redux/store';
-import { useAppDispatch, useAppSelector } from '../../redux/store/hook';
-import { history } from '../../utils/history';
+
+import { AuthData } from '@interface/auth.type';
+
+import { useAppDispatch, useAppSelector } from '@redux/hook';
+import { authActions, getAuthData } from '@redux/slices/auth';
+import { persistor } from '@redux/store';
+
+import { history } from '@utils/history';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);

@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 
-import { AuthData } from '../../interfaces/auth.type';
-import AuthService from '../../services/auth.service';
+import { AuthData } from '@interface/auth.type';
+
+import AuthService from '@services/auth.service';
+
 import { RootState } from '../store';
 
 const initialState: AuthData = {

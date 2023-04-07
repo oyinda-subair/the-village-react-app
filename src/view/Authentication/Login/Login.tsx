@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Button from '../../../components/Buttons/Button';
-import TextBox from '../../../components/Inputs/TextBox';
-import { LoginData } from '../../../interfaces/auth.type';
-// import github from '../../../assets/img/github.svg';
-// import google from '../../../assets/img/google.svg';
-import { isEmpty } from '../../../utils';
-import { history } from '../../../utils/history';
+
+import Button from '@components/Buttons/Button';
+import TextBox from '@components/Inputs/TextBox';
+
+import { LoginData } from '@interface/auth.type';
+
+import github from '@assets/img/github.svg';
+import google from '@assets/img/google.svg';
+
+import { history } from '@utils/history';
+import { isEmpty } from '@utils/validator';
 
 interface LoginProps {
   apiError: any;
@@ -112,14 +116,14 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/github.svg' />
+                      <img alt='...' className='w-5 mr-1' src={github} />
                       Github
                     </button>
                     <button
                       className='bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center text-xs ease-linear transition-all duration-150'
                       type='button'
                     >
-                      <img alt='...' className='w-5 mr-1' src='../../../assets/img/google.svg' />
+                      <img alt='...' className='w-5 mr-1' src={google} />
                       Google
                     </button>
                   </div>

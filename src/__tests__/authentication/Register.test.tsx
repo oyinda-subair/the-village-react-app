@@ -4,8 +4,9 @@ import '@testing-library/jest-dom/extend-expect';
 import { cleanup, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { renderWithProviders } from '../../utils/testUtils';
-import Register from '../../view/Authentication/Register';
+import Register from '@view/Authentication/Register';
+
+import { renderWithProviders } from '@utils/testUtils';
 
 describe('Register User', () => {
   afterEach(() => {

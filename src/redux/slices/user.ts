@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { FetchUserData } from '../../interfaces/user.type';
-import UserService from '../../services/user.service';
+import { FetchUserData } from '@interface/user.type';
+
+import UserService from '@services/user.service';
+
 import { RootState } from '../store';
 
 const initialState: FetchUserData = {

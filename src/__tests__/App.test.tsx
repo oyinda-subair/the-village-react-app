@@ -3,9 +3,11 @@ import React from 'react';
 import { cleanup, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 
+import { UserInfoData } from '@interface/user.type';
+
+import { renderWithProviders } from '@utils/testUtils';
+
 import App from '../App';
-import { UserInfoData } from '../interfaces/user.type';
-import { renderWithProviders } from '../utils/testUtils';
 
 const mockStore = configureStore();
 

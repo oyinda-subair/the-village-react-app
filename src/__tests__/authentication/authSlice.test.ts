@@ -1,5 +1,6 @@
-import { AuthData } from '../../interfaces/auth.type';
-import authReducer, { authActions } from '../../redux/slices/auth';
+import { AuthData } from '@interface/auth.type';
+
+import authReducer, { authActions } from '@redux/slices/auth';
 
 const initialState: AuthData = {
   loading: false,
