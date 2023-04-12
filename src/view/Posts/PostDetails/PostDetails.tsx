@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import PostContent from '@/components/Cards/Posts/PostContent';
@@ -7,13 +6,13 @@ import { getPostDataById } from '@/redux/slices/post';
 
 import { useAppSelector } from '@redux/hook';
 
-import teamTwo from '@assets/img/team-2-800x800.jpg';
+const PostDetails: React.FC = () => {
+  type PostParams = {
+    postId: string;
+  };
 
-const PostDetails = () => {
-  let { postId } = useParams();
-  console.log('postId', postId);
-  const post = useAppSelector((state: any) => getPostDataById(state, postId!));
-  console.log('post ====', post);
+  const { postId } = useParams<PostParams>();
+  const post: any = useAppSelector((state: any) => (postId ? getPostDataById(state, postId) : {}));
 
   return (
     <>
@@ -59,8 +58,7 @@ const PostDetails = () => {
               <div className='mt-10 py-10 border-t border-blueGray-200'>
                 <div className='flex flex-wrap justify-center'>
                   <div className='w-full lg:w-9/12 px-4'>
-                    <PostContent content={post?.content!} />
-
+                    {post && <PostContent content={post.content} />}
                     <a
                       href='#pablo'
                       className='font-normal text-lightBlue-500'

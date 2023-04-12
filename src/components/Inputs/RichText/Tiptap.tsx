@@ -1,10 +1,7 @@
 import React from 'react';
 
-import { mergeAttributes } from '@tiptap/core';
 import BulletList from '@tiptap/extension-bullet-list';
-import ListItem from '@tiptap/extension-list-item';
 import OrderedList from '@tiptap/extension-ordered-list';
-// import Heading from '@tiptap/extension-heading';
 import Placeholder from '@tiptap/extension-placeholder';
 import Underline from '@tiptap/extension-underline';
 import { EditorContent, useEditor } from '@tiptap/react';
@@ -37,7 +34,7 @@ const Tiptap = ({ content, setContent, placeholder }: any) => {
         },
       }),
     ],
-    content: ``,
+    content: ``, // eslint-disable-line
     onUpdate: ({ editor }) => {
       const html = editor.getHTML();
       setContent(html);

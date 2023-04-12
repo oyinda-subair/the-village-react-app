@@ -2,9 +2,6 @@ import { connect } from 'react-redux';
 
 import withRouter from '@view/helper/withRouter';
 
-import { Post } from '@interface/post.type';
-
-import { postActions } from '@redux/slices/post';
 import { AppDispatch, RootState } from '@redux/store';
 
 import PostDetails from './PostDetails';

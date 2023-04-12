@@ -30,11 +30,8 @@ const NewPost = (props: NewPostProps) => {
 
   const [error, setError] = useState(defaultValues);
   const [createPostForm, setCreatePostForm] = useState(defaultValues);
-  const [enableEditor, setEnableEditor] = useState(false);
   const [loading, setLoading] = useState(false);
   const [content, setContent] = useState(false);
-
-  // console.log(content);
 
   const handleCreatePost = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -113,7 +110,6 @@ const NewPost = (props: NewPostProps) => {
           </div>
           <div className='flex-auto px-4 lg:px-10 py-10 pt-0'>
             <form onSubmit={(e) => handleCreatePost(e)}>
-              <h6 className='text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase'></h6>
               <div className='flex flex-wrap'>
                 <div className='w-full lg:w-12/12 px-4'>
                   <div className='relative w-full mb-3'>

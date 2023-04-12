@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import NewPost from '@/components/Cards/Posts/NewPost';
 import { Post } from '@/interface/post.type';
