@@ -114,13 +114,12 @@ export default function Navbar() {
                 </a>
               </li>
               <li className='nav-item'>
-                <a
+                <Link
                   className='px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75'
-                  href='#pablo'
+                  to={'/posts/new'}
                 >
-                  <i className='fab fa-pinterest text-lg leading-lg text-white opacity-75'></i>
-                  <span className='ml-2'>Pin</span>
-                </a>
+                  Create Post
+                </Link>
               </li>
               {renderAuthLinks()}
             </ul>
