@@ -6,3 +6,11 @@ export interface UserRegistration {
   is_superuser?: boolean;
   role?: string;
 }
+
+export interface CreateNewPost {
+  title: string;
+  description?: string;
+  content: string;
+  category: string;
+  image_url?: string;
+}

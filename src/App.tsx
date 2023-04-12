@@ -9,14 +9,18 @@ import moment from 'moment';
 
 import Footer from '@components/Footers/Footer';
 import Navbar from '@components/Navbars/Navbar';
+import { PrivateRoute } from '@components/Navbars/PrivateRoute';
 
 import Login from '@view/Authentication/Login';
 import Register from '@view/Authentication/Register';
 import LandingPage from '@view/LandingPage';
+import CreatePost from '@view/Posts/CreatePost';
 
 import { TokenData } from '@interface/auth.type';
 
 import { history } from '@utils/history';
+
+import PostDetails from './view/Posts/PostDetails';
 
 export default function App() {
   history.navigate = useNavigate();
@@ -53,6 +57,15 @@ export default function App() {
         <section className='relative w-full h-full py-40 min-h-screen bg-blueGray-100'>
           <Routes>
             <Route path='/' element={<LandingPage />} />
+            <Route
+              path='/posts/new'
+              element={
+                <PrivateRoute>
+                  <CreatePost />
+                </PrivateRoute>
+              }
+            />
+            <Route path='/posts/:postId' element={<PostDetails />} />
             <Route path='/auth/login' element={<Login />} />
             <Route path='/auth/register' element={<Register />} />
           </Routes>

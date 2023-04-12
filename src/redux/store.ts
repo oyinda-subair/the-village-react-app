@@ -1,4 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
+
 import { createLogger } from 'redux-logger';
 import {
   FLUSH,
@@ -53,8 +54,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const middlewares: any = [];
 
-if (import.meta.env.NODE_ENV !== 'prodution') {
-  console.log(`in ${import.meta.env.NODE_ENV} mode`);
+if (process.env.NODE_ENV !== 'prodution') {
+  console.log(`in ${process.env.NODE_ENV} mode`);
   middlewares.push(logger);
 }
 

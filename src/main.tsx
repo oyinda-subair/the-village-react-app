@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { persistor, store } from '@redux/store';
 
+import '@assets/styles/index.css';
 import '@assets/styles/tailwind.css';
 
 import App from './App';

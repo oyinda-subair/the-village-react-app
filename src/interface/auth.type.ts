@@ -19,8 +19,8 @@ export interface AuthData {
   userToken?: any;
   loading: boolean;
   error?: any;
-  success?: boolean;
-  isLoggedIn?: boolean;
+  success: boolean;
+  isLoggedIn: boolean;
 }
 
 export interface LoginData {

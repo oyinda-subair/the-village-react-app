@@ -1,19 +1,27 @@
 import React from 'react';
 
-interface ButtonProps {
+interface RegularButtonProps {
   loading: boolean;
   title: string;
   onClick?: (e: React.MouseEvent<HTMLElement>) => void;
   id?: string;
+  secondary?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
-  const { loading, title, onClick, id } = props;
+const RegularButton: React.FC<RegularButtonProps> = (props: RegularButtonProps) => {
+  const { loading, title, onClick, id, secondary } = props;
+
+  const buttonStyle = secondary
+    ? 'bg-red-400 active:bg-red-500'
+    : 'bg-indigo-500 active:bg-indigo-600';
 
   return (
     <button
-      className='bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150'
-      type='submit'
+      className={
+        buttonStyle +
+        ' text-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150'
+      }
+      type='button'
       onClick={onClick}
       data-testid={id}
     >
@@ -44,4 +52,4 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   );
 };
 
-export default Button;
+export default RegularButton;
