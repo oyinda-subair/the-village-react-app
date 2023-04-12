@@ -4,6 +4,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string;
   readonly VITE_REACT_APP_API_BASE_PATH: string;
   readonly VITE_REACT_APP_MODE: string;
+  readonly VITE_NODE_ENV: string;
   // more env variables...
 }
 

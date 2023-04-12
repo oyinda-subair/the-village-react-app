@@ -9,6 +9,7 @@
   "bracketSpacing": true,
   "importOrder": [
     "^react(.*)",
+    "^@reduxjs(.*)",
     "<THIRD_PARTY_MODULES>",
     "^@components/(.*)$",
     "^@view/(.*)",
