@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import Button from '@components/Buttons/Button';
+import Button from '@/components/Buttons/AuthButton';
+
 import TextBox from '@components/Inputs/TextBox';
 
 import { LoginData } from '@interface/auth.type';
@@ -102,7 +103,7 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 
   return (
     <>
-      <div className='absolute top-0 w-full h-full'>
+      <div className='flex top-0 w-full h-full'>
         <div className='container mx-auto px-4 h-full'>
           <div className='flex content-center items-center justify-center h-full'>
             <div className='w-full lg:w-4/12 px-4'>
