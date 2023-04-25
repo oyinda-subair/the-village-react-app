@@ -3,10 +3,13 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
 import { configureStore } from '@reduxjs/toolkit';
+
 import { render, type RenderOptions } from '@testing-library/react';
 
 // As a basic setup, import your same slice reducers
 import authReducer from '@redux/slices/auth';
+import postReducer from '@redux/slices/post';
+import userReducer from '@redux/slices/user';
 import { AppStore } from '@redux/store';
 
 // This type interface extends the default options for render from RTL, as well
@@ -19,7 +22,9 @@ export function renderWithProviders(
   ui: React.ReactElement,
   {
     // Automatically create a store instance if no store was passed in
-    store = configureStore({ reducer: { auth: authReducer } }),
+    store = configureStore({
+      reducer: { auth: authReducer, user: userReducer, post: postReducer },
+    }),
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) {

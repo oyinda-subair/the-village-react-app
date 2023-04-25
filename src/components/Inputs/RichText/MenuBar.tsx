@@ -27,6 +27,7 @@ const MenuBar = ({ editor }: any) => {
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
           className={editor.isActive('bold') ? 'is_active' : ''}
+          data-testid='bold'
         >
           <FaBold />
         </button>
@@ -35,6 +36,7 @@ const MenuBar = ({ editor }: any) => {
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
           className={editor.isActive('italic') ? 'is_active' : ''}
+          data-testid='italic'
         >
           <FaItalic />
         </button>
@@ -42,6 +44,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={editor.isActive('underline') ? 'is_active' : ''}
+          data-testid='underline'
         >
           <FaUnderline />
         </button>
@@ -50,6 +53,7 @@ const MenuBar = ({ editor }: any) => {
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editor.can().chain().focus().toggleStrike().run()}
           className={editor.isActive('strike') ? 'is_active' : ''}
+          data-testid='strike'
         >
           <FaStrikethrough />
         </button>
@@ -58,6 +62,7 @@ const MenuBar = ({ editor }: any) => {
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
           className={editor.isActive('code') ? 'is_active' : ''}
+          data-testid='code'
         >
           <FaCode />
         </button>
@@ -65,6 +70,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
           className={editor.isActive('heading', { level: 2 }) ? 'is_active' : ''}
+          data-testid='heading2'
         >
           <FaHeading />
         </button>
@@ -72,6 +78,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
           className={editor.isActive('heading', { level: 3 }) ? 'is_active' : ''}
+          data-testid='heading3'
         >
           <FaHeading className='heading3' />
         </button>
@@ -79,6 +86,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive('bulletList') ? 'is_active' : ''}
+          data-testid='bullet-list'
         >
           <FaListUl />
         </button>
@@ -86,6 +94,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive('orderedList') ? 'is_active' : ''}
+          data-testid='ordered-list'
         >
           <FaListOl />
         </button>
@@ -93,6 +102,7 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editor.isActive('blockquote') ? 'is_active' : ''}
+          data-testid='block-quote'
         >
           <FaQuoteLeft />
         </button>
@@ -100,15 +110,24 @@ const MenuBar = ({ editor }: any) => {
           type='button'
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={editor.isActive('codeBlock') ? 'is-active' : ''}
+          data-testid='code-block'
         >
           <BiCodeBlock />
         </button>
       </div>
       <div>
-        <button type='button' onClick={() => editor.chain().focus().undo().run()}>
+        <button
+          type='button'
+          onClick={() => editor.chain().focus().undo().run()}
+          data-testid='undo'
+        >
           <FaUndo />
         </button>
-        <button type='button' onClick={() => editor.chain().focus().redo().run()}>
+        <button
+          type='button'
+          onClick={() => editor.chain().focus().redo().run()}
+          data-testid='redo'
+        >
           <FaRedo />
         </button>
       </div>

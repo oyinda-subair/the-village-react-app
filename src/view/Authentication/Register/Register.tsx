@@ -15,6 +15,9 @@ import { history } from '@utils/history';
 import { isEmpty } from '@utils/validator';
 
 interface RegisterProps {
+  apiError: any;
+  loading: boolean;
+  isLoggedIn: boolean;
   userRegistration: (data: UserCreationData) => any;
 }
 
