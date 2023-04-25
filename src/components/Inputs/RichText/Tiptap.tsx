@@ -43,6 +43,7 @@ const Tiptap = ({ content, setContent, placeholder }: any) => {
       attributes: {
         class:
           'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none p-2 border border-gray-300 shadow-sm rounded-b-md h-32 overflow-y-auto bg-white',
+        'data-testid': 'tiptap',
       },
     },
   });
