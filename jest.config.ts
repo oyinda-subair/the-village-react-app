@@ -15,7 +15,7 @@ export default {
   },
   moduleNameMapper: {
     '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/src/__mocks__/fileMock.cjs',
-    // '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy', //comment out when running npm run test:debug
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@assets/(.*)$': '<rootDir>/src/assets/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',

@@ -2,7 +2,7 @@ import { FetchUserPosts } from '@interface/post.type';
 
 import postReducer, { postActions } from '@redux/slices/post';
 
-import { mockPostResponse } from '../helper';
+import { mockPostResponse } from '../../utils/testMockResponse';
 
 const initialState: FetchUserPosts = {
   loading: false,
