@@ -1,6 +1,5 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 
-import { createLogger } from 'redux-logger';
 import {
   FLUSH,
   PAUSE,
@@ -13,36 +12,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { RUNTIME_ENV } from '@utils/environment';
+import { logger } from '@utils/logger';
+
 import { rootReducer } from './reducer';
-
-// Custom logger
-const logger = createLogger({
-  // to collapse certain type of log action e.x., DONATE
-  collapsed: (getState, action) => action.type === 'DONATE',
-
-  // to log only certain type of action
-  predicate: (getState, action) => action.type === 'CREDIT',
-
-  // to show the difference between what changed in state
-  diff: true,
-
-  // to log time
-  duration: true,
-  timestamp: true,
-
-  // custom colors for each log
-  colors: {
-    title: () => '#0f1842',
-    prevState: () => '#de6f0d',
-    action: () => '#6e13ab',
-    nextState: () => '#1a9134',
-  },
-
-  // instead of colors - use cosole type
-  level: 'warm',
-
-  logErrors: true,
-});
 
 const persistConfig = {
   key: 'root',
@@ -52,15 +25,25 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
+const reduxLoggerConfig =
+  ({ getState }: any) =>
+  (next: (arg0: any) => void) =>
+  (action: any) => {
+    logger.log('\x1b[96m action \x1b[0m', action);
+    next(action);
+    logger.log('\x1b[92m next state \x1b[0m', getState());
+  };
+
 const middlewares: any = [];
 
-if (process.env.NODE_ENV !== 'prodution') {
-  console.log(`in ${process.env.NODE_ENV} mode`);
-  middlewares.push(logger);
+if (RUNTIME_ENV !== 'prodution') {
+  logger.log(`in ${RUNTIME_ENV} mode`);
+  middlewares.push(reduxLoggerConfig);
 }
 
 const store: any = configureStore({
   reducer: persistedReducer,
+  devTools: RUNTIME_ENV !== 'production',
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

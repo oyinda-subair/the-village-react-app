@@ -1,7 +1,21 @@
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { fileURLToPath, URL } from 'url';
-import { defineConfig, loadEnv } from 'vite';
+import { createLogger, defineConfig, loadEnv, LogOptions } from 'vite';
+
+const logger = createLogger();
+const customLogger = {
+  ...logger,
+  info: (msg: string, options?: LogOptions) => logger.info('The Village: ' + msg, options),
+};
+
+const loggerWarn = customLogger.warn;
+
+customLogger.warn = (msg, options) => {
+  // Ignore empty CSS files warning
+  if (msg.includes('vite:css') && msg.includes(' is empty')) return;
+  loggerWarn(msg, options);
+};
 
 // https://vitejs.dev/config/
 export default ({ mode }: any) => {
@@ -10,6 +24,7 @@ export default ({ mode }: any) => {
 
   return defineConfig({
     // To access env vars here use process.env.TEST_VAR
+    customLogger,
     plugins: [react()],
     resolve: {
       alias: [
