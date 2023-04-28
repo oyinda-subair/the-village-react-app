@@ -28,5 +28,7 @@ export default {
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
-  testRegex: ['(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$'],
+  testRegex: ['(/__tests__/.*|(\\.|/)(test|spec))\\.(tsx|ts)?$'],
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/interface/**', '!src/**/*.d.ts'],
 };
