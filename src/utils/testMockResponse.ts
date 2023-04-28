@@ -12,3 +12,10 @@ export const mockPostResponse = (options: any = {}) => {
 
   return mergedOptions;
 };
+
+export const mockAuthenticationResponse = (options: any = {}) => {
+  const defaultResponse = { acceccToken: '5Ph3ry_jut_rIfl3r_Sp4r35', tokenType: 'B' };
+  const mergedOptions = Object.assign({}, defaultResponse, options);
+
+  return mergedOptions;
+};
