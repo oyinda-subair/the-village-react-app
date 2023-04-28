@@ -29,7 +29,6 @@ const createExtraReducers = () => {
         const { payload } = action;
         state.loading = false;
         state.success = true;
-        console.log('paylod **', payload);
         state.userPosts = [...state.userPosts, payload];
       })
       .addCase(createPost.rejected, (state: FetchUserPosts, action: PayloadAction) => {
