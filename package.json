@@ -9,6 +9,7 @@
     "jest-preview": "jest-preview",
     "test:debug": "npm test jest-preview",
     "test:watch": "NODE_ENV=test jest --watch",
+    "test:coverage": "NODE_ENV=test jest -- --coverage --watchAll=false",
     "build": "tsc -p tsconfig.prod.json && vite build",
     "preview": "vite preview",
     "host": "vite --host",

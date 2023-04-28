@@ -26,20 +26,10 @@ const Login: React.FC<LoginProps> = (props: LoginProps) => {
 
   const defaultValues = { username: '', password: '', message: '' };
   const [error, setError] = useState(defaultValues);
-  const [loginForm, setLoginForm] = useState<LoginData>(defaultValues);
+  const [loginForm, setLoginForm] = useState<LoginData>({ username: '', password: '' });
   const [rememberMe, setRememberMe] = useState(false);
 
   const [loading, setLoading] = useState(false);
-
-  // const toastId = React.useRef(null);
-
-  // useEffect(() => {
-  //   toast.promise(userLogin, {
-  //     pending: 'Promise is pending',
-  //     success: 'Promise  Loaded',
-  //     error: 'error',
-  //   });
-  // }, []);
 
   const handleRememberMe = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
