@@ -6,7 +6,7 @@ import moment from 'moment';
 import { TokenData } from '@interface/auth.type';
 
 const config = {
-  apiBasePath: import.meta.env.VITE_REACT_APP_API_BASE_PATH || 'http://localhost:8001',
+  apiBasePath: import.meta.env.VITE_REACT_APP_API_BASE_PATH || 'http://0.0.0.0:8001',
   reactAppMode: import.meta.env.VITE_REACT_APP_MODE || 'development',
 };
 /* eslint-disable  @typescript-eslint/no-explicit-any */
