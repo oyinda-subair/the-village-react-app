@@ -62,7 +62,7 @@ describe('Login User', () => {
     expect(jest.isMockFunction(mPost)).toBeTruthy();
 
     const formDataExpect = {
-      grant_type: 'password',
+      grant_type: 'password', // eslint-disable-line
       ...loginData,
     };
 
