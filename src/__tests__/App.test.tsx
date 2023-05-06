@@ -37,7 +37,7 @@ describe('Landing Page', () => {
     const store = mockStore(initialState);
     // Setup
     renderWithProviders(<App />, { store });
-    expect(screen.getByText(/Welcome Back!/)).toBeInTheDocument();
+    expect(screen.getByText(/Welcome Back !/)).toBeInTheDocument();
   });
 
   test('Renders main page correctly when user is logged in', async () => {
@@ -56,7 +56,6 @@ describe('Landing Page', () => {
     const store = mockStore(initialState);
     // Setup
     renderWithProviders(<App />, { store });
-    expect(screen.getByText(/Welcome Back!/)).toBeInTheDocument();
-    expect(screen.getByText(/Test/)).toBeInTheDocument();
+    expect(screen.getByText(/Welcome Back Test!/)).toBeInTheDocument();
   });
 });
