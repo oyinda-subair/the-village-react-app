@@ -2,30 +2,54 @@
 
 const plugin = require('tailwindcss/plugin');
 const colors = require('tailwindcss/colors');
+delete colors['lightBlue'];
+delete colors['warmGray'];
+delete colors['trueGray'];
+delete colors['coolGray'];
+delete colors['blueGray'];
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [
-      './public/**/*.html',
-      './public/*.html',
-      './src/**/*.js',
-      './src/*.js',
-      './src/**/*.html',
-      './src/*.html',
-      './public/**/*.js',
-      './public/*.js',
-    ],
-    options: {
-      safelist: [],
-    },
-  },
-  content: ['./src/**/*.{html,js,tsx,ts}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    colors: {
-      ...colors,
-    },
     extend: {
+      fontFamily: {
+        sans: ['"Open Sans"', 'sans-serif', ...fontFamily.sans],
+      },
+      colors: {
+        // https://mycolor.space/?hex=%2328C38D&sub=1
+        // mountain-meadow shade
+        'mountain-meadow': {
+          100: '#28C38D',
+          200: '#009C69',
+          300: '#007647',
+          400: '#005228',
+          500: '#003108',
+        },
+        // mountain-meadow Generic Gradient
+        'mm-gradient': {
+          100: '#28C38D',
+          200: '#00AB95',
+          300: '#009293',
+          400: '#007888',
+          500: '#1F6073',
+          600: '#2F4858',
+        },
+        // mountain-meadow Matching Gradient
+        'mm-blue': {
+          100: '#28C38D',
+          200: '#00B39E',
+          300: '#00A1A9',
+          400: '#008EAE',
+          500: '#007AAA',
+          600: '#00659D',
+        },
+        secondary: {
+          eminence: '#6A347E',
+        },
+        green: colors.green,
+        ...colors,
+      },
       minHeight: {
         'screen-75': '75vh',
       },
