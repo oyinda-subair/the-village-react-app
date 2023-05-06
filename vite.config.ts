@@ -54,5 +54,15 @@ export default ({ mode }: any) => {
         { find: '@utils', replacement: fileURLToPath(new URL('./src/utils', import.meta.url)) },
       ],
     },
+    server: {
+      watch: {
+        ignored: [path.resolve(__dirname, './coverage')],
+        usePolling: true,
+      },
+      host: true,
+    },
+    optimizeDeps: {
+      exclude: ['coverage'],
+    },
   });
 };
