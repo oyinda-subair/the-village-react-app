@@ -24,7 +24,7 @@ const PostDetails: React.FC = () => {
                 <div className='w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center'>
                   <div className='py-6 px-3 mt-32 sm:mt-0'>
                     <button
-                      className='bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150'
+                      className='bg-sky-500 active:bg-sky-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 ease-linear transition-all duration-150'
                       type='button'
                     >
                       Connect
@@ -34,22 +34,22 @@ const PostDetails: React.FC = () => {
                 <div className='w-full lg:w-4/12 px-4 lg:order-1'>
                   <div className='flex justify-center py-4 lg:pt-4 pt-8'>
                     <div className='mr-4 p-3 text-center'>
-                      <span className='text-xl font-bold block uppercase tracking-wide text-blueGray-600'>
+                      <span className='text-xl font-bold block uppercase tracking-wide text-slate-600'>
                         22
                       </span>
-                      <span className='text-sm text-blueGray-400'>Friends</span>
+                      <span className='text-sm text-slate-400'>Friends</span>
                     </div>
                     <div className='mr-4 p-3 text-center'>
-                      <span className='text-xl font-bold block uppercase tracking-wide text-blueGray-600'>
+                      <span className='text-xl font-bold block uppercase tracking-wide text-slate-600'>
                         10
                       </span>
-                      <span className='text-sm text-blueGray-400'>Photos</span>
+                      <span className='text-sm text-slate-400'>Photos</span>
                     </div>
                     <div className='lg:mr-4 p-3 text-center'>
-                      <span className='text-xl font-bold block uppercase tracking-wide text-blueGray-600'>
+                      <span className='text-xl font-bold block uppercase tracking-wide text-slate-600'>
                         89
                       </span>
-                      <span className='text-sm text-blueGray-400'>Comments</span>
+                      <span className='text-sm text-slate-400'>Comments</span>
                     </div>
                   </div>
                 </div>
@@ -61,7 +61,7 @@ const PostDetails: React.FC = () => {
                     {post && <PostContent content={post.content} />}
                     <a
                       href='#pablo'
-                      className='font-normal text-lightBlue-500'
+                      className='font-normal text-sky-500'
                       onClick={(e) => e.preventDefault()}
                     >
                       Show more
