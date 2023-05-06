@@ -54,7 +54,7 @@ export default function App() {
       <Navbar />
       <ToastContainer autoClose={5000} limit={10} closeOnClick pauseOnHover />
       <main>
-        <section className='relative w-full h-full py-40 min-h-screen bg-blueGray-100'>
+        <section className='relative w-full h-full py-10 min-h-screen '>
           <Routes>
             <Route path='/' element={<LandingPage />} />
             <Route

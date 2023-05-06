@@ -28,10 +28,19 @@ const LandingPage: React.FC<LandingPageProps> = (props: LandingPageProps) => {
     }
   }, [userDetails, isLoggedIn, getUserData]);
 
+  const firstname: any = userDetails?.firstName;
+
   return (
     <>
-      <p>Welcome Back!</p>
-      {userDetails?.firstName}
+      <section className='relative py-16'>
+        <div className='container mx-auto px-4'>
+          <div className='flex flex-wrap'>
+            <div className='w-full px-4'>
+              <p>Welcome Back {firstname}!</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
