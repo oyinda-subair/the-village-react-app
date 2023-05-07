@@ -101,11 +101,11 @@ const NewPost = (props: NewPostProps) => {
 
   return (
     <>
-      <div className='relative flex flex-col min-w-0 break-words bg-blueGray-200 w-full mb-6 shadow-xl rounded-lg mt-16'>
+      <div className='relative flex flex-col min-w-0 break-words bg-slate-200 w-full mb-6 shadow-xl rounded-lg mt-16'>
         <div className='px-6'>
           <div className='rounded-t mb-0 px-6 py-6'>
             <div className='text-center flex justify-between'>
-              <h6 className='text-blueGray-700 text-xl font-bold'>Create Post</h6>
+              <h6 className='text-slate-700 text-xl font-bold'>Create Post</h6>
             </div>
           </div>
           <div className='flex-auto px-4 lg:px-10 py-10 pt-0'>
@@ -142,9 +142,7 @@ const NewPost = (props: NewPostProps) => {
                 </div>
               </div>
 
-              <h6 className='text-blueGray-600 text-sm mt-3 mb-6 font-bold uppercase'>
-                Write a Post
-              </h6>
+              <h6 className='text-slate-600 text-sm mt-3 mb-6 font-bold uppercase'>Write a Post</h6>
               <div className='flex flex-wrap'>
                 <div className='w-full lg:w-12/12 px-4'>
                   <div className='relative w-full mb-3'>

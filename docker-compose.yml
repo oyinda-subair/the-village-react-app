@@ -1,0 +1,22 @@
+version: "3.8"
+
+x-app: &default-app
+  env_file:
+    - ".env"
+  tty: true
+
+services:
+  frontend:
+    <<: *default-app
+    container_name: frontend
+    build:
+      context: .
+      target: ${NODE_ENV}
+      dockerfile: 'Dockerfile.development'
+    ports:
+      - 5173:5173
+    volumes:
+      - "./:/node/app:delegated"
+      - "/node/app/node_modules"
+    environment:
+      - VITE_REACT_APP_API_BASE_PATH=$VITE_REACT_APP_API_BASE_PATH

@@ -68,7 +68,14 @@ describe('Login User', () => {
 
     expect(mPost).toHaveBeenCalledTimes(1);
 
-    expect(mPost).toBeCalledWith('/auth/login', expect.any(FormData));
+    const config = {
+      headers: {
+        Accept: 'application/json, text/plain, /',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8;application/json',
+      },
+    };
+
+    expect(mPost).toBeCalledWith('/auth/login', expect.any(FormData), config);
     const callArgs: any = mPost.mock.calls[0][1];
     if (callArgs) {
       const body = callArgs as FormData;

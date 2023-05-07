@@ -15,7 +15,8 @@
     "host": "vite --host",
     "tsc": "./node_modules/typescript/bin/tsc",
     "lint": "eslint --ext .ts \"./src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "build:tailwind": "tailwindcss -i src/assets/styles/index.css -o src/assets/styles/tailwind.css -w"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.3.0",
@@ -42,6 +43,7 @@
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.1",
+    "react-table": "^7.8.0",
     "react-toastify": "^9.1.2",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0"
@@ -70,6 +72,7 @@
     "@types/redux-thunk": "^2.1.0",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.14",
     "axios-mock-adapter": "^1.21.3",
     "babel-plugin-transform-import-meta": "^2.2.0",
     "babel-plugin-transform-vite-meta-env": "^1.0.3",
@@ -86,6 +89,7 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-preview": "^0.3.1",
     "jest-watch-typeahead": "^2.2.2",
+    "postcss": "^8.4.23",
     "prettier": "2.8.7",
     "redux-mock-store": "^1.5.4",
     "remote-redux-devtools": "^0.5.16",
